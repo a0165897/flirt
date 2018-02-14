@@ -1,4 +1,4 @@
-var Box = function(x, y, w, h, s) {
+var Box = function(x, y, w, h, s) {//Box是背景浮动的光点，属于烘托气氛的。
     /*定义了一堆参数*/
     this.x = x;
     this.y = y;
@@ -36,7 +36,7 @@ Box.prototype = {
 };
 
 
-var Circle = function(x, y, tx, ty, r) {
+var Circle = function(x, y, tx, ty, r) {//这是实现文字的渲染的
     /*定义了一堆参数*/
     this.x = x;
     this.y = y;
@@ -60,7 +60,7 @@ var Circle = function(x, y, tx, ty, r) {
 Circle.prototype = {
     constructor: Circle,
 
-    update: function(){
+    update: function(){//更新位置
         if(this.delayCtr < this.delay){
             this.delayCtr++;
             return;
@@ -69,17 +69,17 @@ Circle.prototype = {
         this.a += 0.1;
         this.lx = this.x;
         this.ly = this.y;
-        if(!clickToggle){
+        if(!clickToggle){//一帧一帧聚集
             this.x += (this.tx - this.x) * this.sx;
             this.y += (this.ty - this.y) * this.sy;
-        } else {
+        } else {//散开
             this.x += (this.ox - this.x) * this.sx;
             this.y += (this.oy - this.y) * this.sy;
         }
         this.r = this.br + Math.cos(this.a) * (this.br * 0.5);
     },
 
-    render: function(ctx){
+    render: function(ctx){//渲染
         ctx.save();
         ctx.globalAlpha = this.o;
         ctx.fillStyle = 'hsla(' + this.hue + ', 100%, 90%, 1)';
@@ -131,13 +131,13 @@ txtCtx.fillText('的骚话。', WIDTH / 5, HEIGHT *4.2/5);
 ctx.font = 'bold 12px Monospace';
 ctx.textAlign = 'center';
 ctx.baseline = 'middle';
-imgData = txtCtx.getImageData(0, 0, WIDTH, HEIGHT).data;
+imgData = txtCtx.getImageData(0, 0, WIDTH, HEIGHT).data;//把文字转换成图片，其实渲染的是图片对应的坐标啊
 
 /*主体粒子*/
 for(var y = 0; y < HEIGHT; y += skip){
     for(var x = 0; x < WIDTH; x += skip){
         idx = (x + y * WIDTH) * 4 - 1;
-        if(imgData[idx] > 0){
+        if(imgData[idx] > 0){//按imgData选择粒子
             a = Math.PI * 2 * Math.random();
             circle = new Circle(
                 WIDTH / 2 + Math.cos(a) * WIDTH,
@@ -164,12 +164,12 @@ for(var b = 0; b < 10; b++){
 }
 
 
-c.addEventListener('click', function(e){
+c.addEventListener('click', function(){
     clickToggle = !clickToggle;
     if(!clickToggle){
-        circles = [];
+        circles = [];//先清空circle盒子
     }
-    if(counter === 0 && clickToggle){
+    if(counter === 0 && clickToggle){//再重新刷新文字
         txtCtx.clearRect(0,0,WIDTH,HEIGHT);
         txtCtx.fillText('这是', WIDTH / 5, HEIGHT *1.2/5);
         txtCtx.fillText('第二段，', WIDTH / 5, HEIGHT *2.2/5);
@@ -196,10 +196,10 @@ c.addEventListener('click', function(e){
     }
 
 
-    imgData = txtCtx.getImageData(0, 0, WIDTH, HEIGHT).data;
+    imgData = txtCtx.getImageData(0, 0, WIDTH, HEIGHT).data;//保存为图片
 
     /*主体粒子*/
-    for(var y = 0; y < HEIGHT; y += skip){
+    for(var y = 0; y < HEIGHT; y += skip){//粒子添加
         for(var x = 0; x < WIDTH; x += skip){
             idx = (x + y * WIDTH) * 4 - 1;
             if(imgData[idx] > 0){

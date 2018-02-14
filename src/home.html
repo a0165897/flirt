@@ -10,10 +10,11 @@
 
 <body>
 <canvas id="c"></canvas>
+<!--这首是岩井俊二的我爱你，请务必先确保她爱你，不然会更尴尬-->
 <audio autoplay="autoplay" loop="loop" preload="auto"
        src="http://music.163.com/song/media/outer/url?id=4882396.mp3">
 </audio>
-<script>//兼容移动端
+<script>//兼容移动端 chrome和ios机型（部分安卓）会以不下载音乐为默认
     window.onload = function(){
         document.getElementById("c").addEventListener("click",function(){
             var audio = document.getElementById("audio");
