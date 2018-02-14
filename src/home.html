@@ -2,9 +2,10 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <!--一个tips：现在看来，这个只能作为锦上添花，似乎并不能作为表白用啊-->
     <title>:-)</title>
-    <script src="main.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer="defer"></script>
+    <link rel="stylesheet" href="style.css" >
 </head>
 
 <body>
@@ -12,6 +13,18 @@
 <audio autoplay="autoplay" loop="loop" preload="auto"
        src="http://music.163.com/song/media/outer/url?id=4882396.mp3">
 </audio>
+<script>//兼容移动端
+    window.onload = function(){
+        document.getElementById("c").addEventListener("click",function(){
+            var audio = document.getElementById("audio");
+            audio.play();
+        });
+        document.getElementById("c").addEventListener("touchstart",function(){
+            var audio = document.getElementById("audio");
+            audio.play();
+        });
+    };
+</script>
 
 </body>
 </html>

@@ -110,23 +110,24 @@ var WIDTH = c.width = window.innerWidth;
 var HEIGHT = c.height = window.innerHeight;
 var imgData = null;
 var idx = null;
-var skip = 6;
+var skip = 8;
 var circles = [];
 var circle = null;
 var a = null;
 var clickToggle = false;
 var boxList = [];
 var box = null;
+var counter = 0;
 
 txtCanvas.width = WIDTH;
 txtCanvas.height = HEIGHT;
-txtCtx.font = '130px Sans-serif';
-txtCtx.textAlign = 'center';
+txtCtx.font = '143px Sans-serif';
+txtCtx.textAlign = 'left';
 txtCtx.baseline = 'middle';
-txtCtx.fillText('我真的', WIDTH / 2, HEIGHT *1/5);
-txtCtx.fillText('不会作情诗啊', WIDTH / 2, HEIGHT *2/5);
-txtCtx.fillText('没办法了,顾桑', WIDTH / 2, HEIGHT *3/5);
-txtCtx.fillText('我爱你', WIDTH / 2, HEIGHT *4/5);
+txtCtx.fillText('这是', WIDTH / 5, HEIGHT *1.2/5);
+txtCtx.fillText('第一段，', WIDTH / 5, HEIGHT *2.2/5);
+txtCtx.fillText('连篇', WIDTH / 5, HEIGHT *3.2/5);
+txtCtx.fillText('的骚话。', WIDTH / 5, HEIGHT *4.2/5);
 ctx.font = 'bold 12px Monospace';
 ctx.textAlign = 'center';
 ctx.baseline = 'middle';
@@ -165,6 +166,55 @@ for(var b = 0; b < 10; b++){
 
 c.addEventListener('click', function(e){
     clickToggle = !clickToggle;
+    if(!clickToggle){
+        circles = [];
+    }
+    if(counter === 0 && clickToggle){
+        txtCtx.clearRect(0,0,WIDTH,HEIGHT);
+        txtCtx.fillText('这是', WIDTH / 5, HEIGHT *1.2/5);
+        txtCtx.fillText('第二段，', WIDTH / 5, HEIGHT *2.2/5);
+        txtCtx.fillText('。', WIDTH / 5, HEIGHT *3.2/5);
+        txtCtx.fillText('。', WIDTH / 5, HEIGHT *4.2/5);
+        counter++;
+    }
+    else if(counter === 1 && clickToggle){
+        txtCtx.clearRect(0,0,WIDTH,HEIGHT);
+        txtCtx.fillText('第三段', WIDTH / 5, HEIGHT *1.2/5);
+        txtCtx.fillText('了', WIDTH / 5, HEIGHT *2.2/5);
+        txtCtx.fillText('祝你', WIDTH / 5, HEIGHT *3.2/5);
+        txtCtx.fillText('成功。', WIDTH / 5, HEIGHT *4.2/5);
+        counter++;
+
+    }
+    else if(counter===2 && clickToggle){
+        txtCtx.clearRect(0,0,WIDTH,HEIGHT);
+        txtCtx.fillText('还是', WIDTH / 5, HEIGHT *1.2/5);
+        txtCtx.fillText('第一段，', WIDTH / 5, HEIGHT *2.2/5);
+        txtCtx.fillText('周而', WIDTH / 5, HEIGHT *3.2/5);
+        txtCtx.fillText('复始。', WIDTH / 5, HEIGHT *4.2/5);
+        counter=0;
+    }
+
+
+    imgData = txtCtx.getImageData(0, 0, WIDTH, HEIGHT).data;
+
+    /*主体粒子*/
+    for(var y = 0; y < HEIGHT; y += skip){
+        for(var x = 0; x < WIDTH; x += skip){
+            idx = (x + y * WIDTH) * 4 - 1;
+            if(imgData[idx] > 0){
+                a = Math.PI * 2 * Math.random();
+                circle = new Circle(
+                    WIDTH / 2 + Math.cos(a) * WIDTH,
+                    HEIGHT / 2 + Math.sin(a) * WIDTH,
+                    x,
+                    y,
+                    Math.random() * 4
+                );
+                circles.push(circle);
+            }
+        }
+    }
 });
 
 /*每当浏览器刷新时调用*/
@@ -189,3 +239,4 @@ requestAnimationFrame(function loop(){
     }
 
 });
+
