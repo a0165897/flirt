@@ -162,10 +162,10 @@
     txtCtx.font = '143px Sans-serif';
     txtCtx.textAlign = 'left';
     txtCtx.baseline = 'middle';
-    txtCtx.fillText('这是', WIDTH / 5, HEIGHT *1.2/5);
-    txtCtx.fillText('第一段，', WIDTH / 5, HEIGHT *2.2/5);
-    txtCtx.fillText('连篇', WIDTH / 5, HEIGHT *3.2/5);
-    txtCtx.fillText('的骚话。', WIDTH / 5, HEIGHT *4.2/5);
+    txtCtx.fillText('说不上爱', WIDTH / 5, HEIGHT *1.2/5);
+    txtCtx.fillText('别说谎，', WIDTH / 5, HEIGHT *2.2/5);
+    txtCtx.fillText('就', WIDTH / 5, HEIGHT *3.2/5);
+    txtCtx.fillText('一点喜欢。', WIDTH / 5, HEIGHT *4.2/5);
     ctx.font = 'bold 12px Monospace';
     ctx.textAlign = 'center';
     ctx.baseline = 'middle';
@@ -209,29 +209,46 @@
         }
         if(counter === 0 && clickToggle){
             txtCtx.clearRect(0,0,WIDTH,HEIGHT);
-            txtCtx.fillText('这是', WIDTH / 5, HEIGHT *1.2/5);
-            txtCtx.fillText('第二段，', WIDTH / 5, HEIGHT *2.2/5);
-            txtCtx.fillText('。', WIDTH / 5, HEIGHT *3.2/5);
-            txtCtx.fillText('。', WIDTH / 5, HEIGHT *4.2/5);
+            txtCtx.fillText('说不上恨', WIDTH / 5, HEIGHT *1.2/5);
+            txtCtx.fillText('别纠缠，', WIDTH / 5, HEIGHT *2.2/5);
+            txtCtx.fillText('别', WIDTH / 5, HEIGHT *3.2/5);
+            txtCtx.fillText('装作感叹。', WIDTH / 5, HEIGHT *4.2/5);
             counter++;
         }
         else if(counter === 1 && clickToggle){
             txtCtx.clearRect(0,0,WIDTH,HEIGHT);
-            txtCtx.fillText('第三段', WIDTH / 5, HEIGHT *1.2/5);
-            txtCtx.fillText('了', WIDTH / 5, HEIGHT *2.2/5);
-            txtCtx.fillText('祝你', WIDTH / 5, HEIGHT *3.2/5);
-            txtCtx.fillText('成功。', WIDTH / 5, HEIGHT *4.2/5);
+            txtCtx.fillText('就当作我太麻烦', WIDTH / 5, HEIGHT *1.2/5);
+            txtCtx.fillText('，', WIDTH / 5, HEIGHT *2.2/5);
+            txtCtx.fillText('不停', WIDTH / 5, HEIGHT *3.2/5);
+            txtCtx.fillText('让自己受伤。', WIDTH / 5, HEIGHT *4.2/5);
             counter++;
 
         }
         else if(counter===2 && clickToggle){
             txtCtx.clearRect(0,0,WIDTH,HEIGHT);
-            txtCtx.fillText('还是', WIDTH / 5, HEIGHT *1.2/5);
-            txtCtx.fillText('第一段，', WIDTH / 5, HEIGHT *2.2/5);
-            txtCtx.fillText('周而', WIDTH / 5, HEIGHT *3.2/5);
-            txtCtx.fillText('复始。', WIDTH / 5, HEIGHT *4.2/5);
+            txtCtx.fillText('我告诉自己', WIDTH / 5, HEIGHT *1.2/5);
+            txtCtx.fillText('感情就是这样，', WIDTH / 5, HEIGHT *2.2/5);
+            txtCtx.fillText('怎么一不小心', WIDTH / 5, HEIGHT *3.2/5);
+            txtCtx.fillText('太疯狂。', WIDTH / 5, HEIGHT *4.2/5);
+            counter++;
+        }
+        else if(counter===3 && clickToggle){
+            txtCtx.clearRect(0,0,WIDTH,HEIGHT);
+            txtCtx.fillText('抱一抱，', WIDTH / 5, HEIGHT *1.2/5);
+            txtCtx.fillText('再好好觉悟', WIDTH / 5, HEIGHT *2.2/5);
+            txtCtx.fillText('，', WIDTH / 5, HEIGHT *2.2/5);
+            txtCtx.fillText('不能长久。', WIDTH / 5, HEIGHT *4.2/5);
+            counter++;
+        }
+        else if(counter===4 && clickToggle){
+            txtCtx.clearRect(0,0,WIDTH,HEIGHT);
+            txtCtx.fillText('说不上爱', WIDTH / 5, HEIGHT *1.2/5);
+            txtCtx.fillText('别说谎，', WIDTH / 5, HEIGHT *2.2/5);
+            txtCtx.fillText('就', WIDTH / 5, HEIGHT *3.2/5);
+            txtCtx.fillText('一点喜欢。', WIDTH / 5, HEIGHT *4.2/5);
             counter=0;
         }
+
 
 
         imgData = txtCtx.getImageData(0, 0, WIDTH, HEIGHT).data;
