@@ -12,5 +12,9 @@ index.html直接可以打开看效果，src可以慢慢研究（没什么好研�
  
 # 后果自负
  
-来自一个伤心人。
+。 
+ 
+# 演示地址
+
+http://www.mingkun888.com/thing/
  
