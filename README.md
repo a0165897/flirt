@@ -12,10 +12,8 @@ index.html直接可以打开看效果，src可以慢慢研究（没什么好研�
  
 # 后果自负
  
-![avatar](http://www.mingkun888.com/thing/0.png)
-![avatar](http://www.mingkun888.com/thing/1.png)
  
 # 演示地址
 
-http://www.mingkun888.com/thing/
+http://www.mingkun888.com
  
